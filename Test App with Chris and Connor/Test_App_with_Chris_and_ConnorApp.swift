@@ -7,11 +7,23 @@
 
 import SwiftUI
 
+struct MapViewControllerWrapper: UIViewControllerRepresentable {
+    func updateUIViewController(_ uiViewController: UIViewController, context: Context) {
+        
+    }
+    
+
+    func makeUIViewController(context: Context) -> UIViewController {
+        return ViewController()
+    }
+    
+}
+
 @main
 struct Test_App_with_Chris_and_ConnorApp: App {
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            MapViewControllerWrapper()
         }
     }
 }
