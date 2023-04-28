@@ -1,0 +1,12 @@
+{
+  "data" : [
+    {
+      "filename" : "nyc-parks-drinking-fountains.geojson",
+      "idiom" : "universal"
+    }
+  ],
+  "info" : {
+    "author" : "xcode",
+    "version" : 1
+  }
+}

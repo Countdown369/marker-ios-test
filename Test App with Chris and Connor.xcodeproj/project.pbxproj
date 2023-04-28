@@ -15,6 +15,9 @@
 		8303986329E5C5AF00373EF4 /* Test_App_with_Chris_and_ConnorUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8303986229E5C5AF00373EF4 /* Test_App_with_Chris_and_ConnorUITests.swift */; };
 		8303986529E5C5AF00373EF4 /* Test_App_with_Chris_and_ConnorUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8303986429E5C5AF00373EF4 /* Test_App_with_Chris_and_ConnorUITestsLaunchTests.swift */; };
 		8303987429E5C69500373EF4 /* MapboxMaps in Frameworks */ = {isa = PBXBuildFile; productRef = 8303987329E5C69500373EF4 /* MapboxMaps */; };
+		8381474429FC29EE00D91622 /* water-fountains.geojson in Resources */ = {isa = PBXBuildFile; fileRef = 8381474329FC29EE00D91622 /* water-fountains.geojson */; };
+		8381474529FC29EE00D91622 /* water-fountains.geojson in Resources */ = {isa = PBXBuildFile; fileRef = 8381474329FC29EE00D91622 /* water-fountains.geojson */; };
+		8381474629FC29EE00D91622 /* water-fountains.geojson in Resources */ = {isa = PBXBuildFile; fileRef = 8381474329FC29EE00D91622 /* water-fountains.geojson */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -46,6 +49,7 @@
 		8303986229E5C5AF00373EF4 /* Test_App_with_Chris_and_ConnorUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Test_App_with_Chris_and_ConnorUITests.swift; sourceTree = "<group>"; };
 		8303986429E5C5AF00373EF4 /* Test_App_with_Chris_and_ConnorUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Test_App_with_Chris_and_ConnorUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		8303987129E5C5E200373EF4 /* Test-App-with-Chris-and-Connor-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "Test-App-with-Chris-and-Connor-Info.plist"; sourceTree = SOURCE_ROOT; };
+		8381474329FC29EE00D91622 /* water-fountains.geojson */ = {isa = PBXFileReference; lastKnownFileType = text; path = "water-fountains.geojson"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -100,6 +104,7 @@
 				8303987129E5C5E200373EF4 /* Test-App-with-Chris-and-Connor-Info.plist */,
 				8303984729E5C5AD00373EF4 /* Test_App_with_Chris_and_ConnorApp.swift */,
 				8303984929E5C5AD00373EF4 /* ContentView.swift */,
+				8381474329FC29EE00D91622 /* water-fountains.geojson */,
 				8303984B29E5C5AE00373EF4 /* Assets.xcassets */,
 				8303984D29E5C5AE00373EF4 /* Preview Content */,
 			);
@@ -241,6 +246,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8381474429FC29EE00D91622 /* water-fountains.geojson in Resources */,
 				8303984F29E5C5AE00373EF4 /* Preview Assets.xcassets in Resources */,
 				8303984C29E5C5AE00373EF4 /* Assets.xcassets in Resources */,
 			);
@@ -250,6 +256,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8381474529FC29EE00D91622 /* water-fountains.geojson in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -257,6 +264,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8381474629FC29EE00D91622 /* water-fountains.geojson in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
