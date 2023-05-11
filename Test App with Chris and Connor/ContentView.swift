@@ -5,12 +5,13 @@
 //  Created by Connor Brown on 4/11/23.
 //
 
-import SwiftUI
 import MapboxMaps
 
 class ViewController: UIViewController {
     
     internal var mapView: MapView!
+    internal var scrollView: UIScrollView!
+    internal var textView: UILabel!
     
     var mapDraggingSubscription: MapboxMaps.Cancelable?
     var draggingRefreshTimer: Timer?
@@ -50,6 +51,25 @@ class ViewController: UIViewController {
         }
         
         self.view.addSubview(mapView)
+        
+        let viewHeight = view.frame.size.height //grabs the height of your view
+        scrollView = UIScrollView(frame: view.bounds)
+        scrollView.backgroundColor = UIColor.yellow.withAlphaComponent(0.75)
+        scrollView.frame = CGRect(x: 0, y: viewHeight - 200, width: self.view.frame.width, height: 200)
+        
+        self.view.addSubview(scrollView)
+        
+        let numbers = ["Connor", "Chris", "New York", "Boston"]
+        for (index, thing) in numbers.enumerated(){
+            textView = UILabel(frame: CGRect(x: 300 * index, y: 0, width: Int(self.scrollView.frame.width), height: Int(self.scrollView.frame.height)))
+            textView.text = thing
+            scrollView.addSubview(textView)
+        }
+                    
+//        textView = UITextView(frame: scrollView.bounds)
+//        textView.text = "The UITextView"
+//
+//        scrollView.addSubview(textView)
         
         let customCoordinate = CLLocationCoordinate2DMake(40.73585, -73.97496)
         var pointAnnotation = PointAnnotation(coordinate: customCoordinate)
