@@ -18,6 +18,7 @@
 		8381474429FC29EE00D91622 /* water-fountains.geojson in Resources */ = {isa = PBXBuildFile; fileRef = 8381474329FC29EE00D91622 /* water-fountains.geojson */; };
 		8381474529FC29EE00D91622 /* water-fountains.geojson in Resources */ = {isa = PBXBuildFile; fileRef = 8381474329FC29EE00D91622 /* water-fountains.geojson */; };
 		8381474629FC29EE00D91622 /* water-fountains.geojson in Resources */ = {isa = PBXBuildFile; fileRef = 8381474329FC29EE00D91622 /* water-fountains.geojson */; };
+		83947B682A2A8B42006DB7C5 /* LoopyCarousel.swift .swift in Sources */ = {isa = PBXBuildFile; fileRef = 83947B672A2A8B42006DB7C5 /* LoopyCarousel.swift .swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -50,6 +51,7 @@
 		8303986429E5C5AF00373EF4 /* Test_App_with_Chris_and_ConnorUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Test_App_with_Chris_and_ConnorUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		8303987129E5C5E200373EF4 /* Test-App-with-Chris-and-Connor-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "Test-App-with-Chris-and-Connor-Info.plist"; sourceTree = SOURCE_ROOT; };
 		8381474329FC29EE00D91622 /* water-fountains.geojson */ = {isa = PBXFileReference; lastKnownFileType = text; path = "water-fountains.geojson"; sourceTree = "<group>"; };
+		83947B672A2A8B42006DB7C5 /* LoopyCarousel.swift .swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "LoopyCarousel.swift .swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -103,6 +105,7 @@
 			children = (
 				8303987129E5C5E200373EF4 /* Test-App-with-Chris-and-Connor-Info.plist */,
 				8303984729E5C5AD00373EF4 /* Test_App_with_Chris_and_ConnorApp.swift */,
+				83947B672A2A8B42006DB7C5 /* LoopyCarousel.swift .swift */,
 				8303984929E5C5AD00373EF4 /* ContentView.swift */,
 				8381474329FC29EE00D91622 /* water-fountains.geojson */,
 				8303984B29E5C5AE00373EF4 /* Assets.xcassets */,
@@ -276,6 +279,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				8303984A29E5C5AD00373EF4 /* ContentView.swift in Sources */,
+				83947B682A2A8B42006DB7C5 /* LoopyCarousel.swift .swift in Sources */,
 				8303984829E5C5AD00373EF4 /* Test_App_with_Chris_and_ConnorApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
