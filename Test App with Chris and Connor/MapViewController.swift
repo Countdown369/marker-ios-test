@@ -7,11 +7,14 @@
 
 import MapboxMaps
 
-final class ViewController: UIViewController {
+final class MapViewController: UIViewController {
     
     internal var mapView: MapView!
     internal var scrollView: UIScrollView!
     internal var textView: UILabel!
+    
+    var FC: FeatureCollection!
+    
     
     var mapDraggingSubscription: MapboxMaps.Cancelable?
     var draggingRefreshTimer: Timer?
@@ -75,7 +78,7 @@ final class ViewController: UIViewController {
         let customCoordinate = CLLocationCoordinate2DMake(40.73585, -73.97496)
         var pointAnnotation = PointAnnotation(coordinate: customCoordinate)
         
-//        mapView.mapboxMap.onNext(event: .mapLoaded) { _ in
+        mapView.mapboxMap.onNext(event: .mapLoaded) { _ in
 //            let fileName = "water-fountains"
 //
 //            guard let path = Bundle.main.path(forResource: fileName, ofType: "geojson") else {
@@ -91,24 +94,28 @@ final class ViewController: UIViewController {
 //            } catch {
 //                print("Error parsing data: \(error)")
 //            }
-//
-//            // Create a GeoJSON data source.
-//            var geoJSONSource = GeoJSONSource()
-//            geoJSONSource.data = .featureCollection(featureCollection)
-//
-//            let geoJSONDataSourceIdentifier = "water-fountains"
-//
-//            var circleWaterFountainsLayer = CircleLayer(id: "circle-water-fountains")
-//            circleWaterFountainsLayer.source = geoJSONDataSourceIdentifier
-//
-//            circleWaterFountainsLayer.circleRadius = .constant(8)
-//            circleWaterFountainsLayer.circleColor = .constant(StyleColor(.red))
-//
-//            // Add the source and style layer to the map style.
-//            try! self.mapView.mapboxMap.style.addSource(geoJSONSource, id: geoJSONDataSourceIdentifier)
-//            try! self.mapView.mapboxMap.style.addLayer(circleWaterFountainsLayer, layerPosition: nil)
-//
-//        }
+            
+            print("FOOOOO")
+            
+            print(self.FC.features[0])
+
+            // Create a GeoJSON data source.
+            var geoJSONSource = GeoJSONSource()
+            geoJSONSource.data = .featureCollection(self.FC)
+
+            let geoJSONDataSourceIdentifier = "water-fountains"
+
+            var circleWaterFountainsLayer = CircleLayer(id: "circle-water-fountains")
+            circleWaterFountainsLayer.source = geoJSONDataSourceIdentifier
+
+            circleWaterFountainsLayer.circleRadius = .constant(8)
+            circleWaterFountainsLayer.circleColor = .constant(StyleColor(.red))
+
+            // Add the source and style layer to the map style.
+            try! self.mapView.mapboxMap.style.addSource(geoJSONSource, id: geoJSONDataSourceIdentifier)
+            try! self.mapView.mapboxMap.style.addLayer(circleWaterFountainsLayer, layerPosition: nil)
+
+        }
         
         // Make the annotation show a red pin
         pointAnnotation.image = .init(image: UIImage(named: "map-marker")!, name: "map-marker")

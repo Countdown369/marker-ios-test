@@ -10,13 +10,17 @@ import Turf
 
 
 struct MapViewControllerWrapper: UIViewControllerRepresentable {
-    func updateUIViewController(_ uiViewController: UIViewController, context: Context) {
-        
+    @Binding var FC: FeatureCollection!
+    
+    func updateUIViewController(_ mapViewController: UIViewController, context: Context) {
+        mapViewController.FC = FC
     }
     
 
     func makeUIViewController(context: Context) -> UIViewController {
-        return ViewController()
+        let mapViewController = MapViewController()
+        mapViewController.FC = FC
+        return mapViewController
     }
     
 }
@@ -25,10 +29,12 @@ struct ContentView: View {
     @State private var image: Image?
     @State private var showingImagePicker = false
     @State var featureCollection: FeatureCollection!
+    
+   
 
     var body: some View {
         ZStack {
-            MapViewControllerWrapper(featureCollection: featureCollection);
+            MapViewControllerWrapper(FC: $featureCollection);
             LoopyCarousel();
         }
         .onAppear {
@@ -42,8 +48,7 @@ struct ContentView: View {
             do {
                 let data = try Data(contentsOf: filePath)
                 featureCollection = try JSONDecoder().decode(FeatureCollection.self, from: data)
-                print(featureCollection.features[0]);
-                print("FOO")
+                
             } catch {
                 print("Error parsing data: \(error)")
             }
