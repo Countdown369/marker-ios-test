@@ -8,21 +8,17 @@
 import SwiftUI
 import Turf
 
-
+// UIViewControllerRepresentable converts the UIViewController into a proper SwiftUI View
 struct MapViewControllerWrapper: UIViewControllerRepresentable {
     @Binding var FC: FeatureCollection!
-    
-    func updateUIViewController(_ mapViewController: UIViewController, context: Context) {
-        mapViewController.FC = FC
-    }
-    
 
-    func makeUIViewController(context: Context) -> UIViewController {
-        let mapViewController = MapViewController()
-        mapViewController.FC = FC
-        return mapViewController
+    func makeUIViewController(context: Context) -> MapViewController {
+        MapViewController()
     }
     
+    func updateUIViewController(_ mapViewController: MapViewController, context: Context) {
+        mapViewController.FC = FC
+    }
 }
 
 struct ContentView: View {
@@ -30,7 +26,6 @@ struct ContentView: View {
     @State private var showingImagePicker = false
     @State var featureCollection: FeatureCollection!
     
-   
 
     var body: some View {
         ZStack {
@@ -38,6 +33,7 @@ struct ContentView: View {
             LoopyCarousel();
         }
         .onAppear {
+            // load geojson file and store it in the variable `featureCollection`
             let fileName = "water-fountains"
             
             guard let path = Bundle.main.path(forResource: fileName, ofType: "geojson") else {
@@ -48,7 +44,6 @@ struct ContentView: View {
             do {
                 let data = try Data(contentsOf: filePath)
                 featureCollection = try JSONDecoder().decode(FeatureCollection.self, from: data)
-                
             } catch {
                 print("Error parsing data: \(error)")
             }
