@@ -30,7 +30,7 @@ struct ContentView: View {
     var body: some View {
         ZStack {
             MapViewControllerWrapper(FC: $featureCollection);
-            LoopyCarousel();
+            LoopyCarousel(FC: $featureCollection);
         }
         .onAppear {
             // load geojson file and store it in the variable `featureCollection`

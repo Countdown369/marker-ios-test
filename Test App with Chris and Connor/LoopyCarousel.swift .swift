@@ -6,11 +6,16 @@
 //
 
 import SwiftUI
+import Turf
+
+
 
 struct LoopyCarousel: View {
-
-  @State var cardLabels = ["foo", "bar", "baz"]
-
+    @State private var fountainNames: [String];
+    @Binding var FC: FeatureCollection!{
+        didSet{fountainNames = FC.features.compactMap { $0.properties!["signname"] as? String }}
+    }
+    
   var body: some View {
 
     VStack {
@@ -18,7 +23,7 @@ struct LoopyCarousel: View {
       Text("Loopy Carousel").font(.title)
       Text("Tap on any card to select and see it slide onto the center of the carousel.")
 
-      Carousel(cardLabels: $cardLabels)
+        Carousel(cardLabels: $fountainNames)
       .padding()
       .frame(maxWidth: .infinity)
       .clipped()
@@ -125,8 +130,8 @@ fileprivate struct Card: View {
   }
 }
 
-struct LoopyCarousel_Previews: PreviewProvider {
-  static var previews: some View {
-    LoopyCarousel()
-  }
-}
+//struct LoopyCarousel_Previews: PreviewProvider {
+//  static var previews: some View {
+//      LoopyCarousel(fountainNames: <#[String]#>, FC: <#Binding<FeatureCollection?>#>)
+//  }
+//}
