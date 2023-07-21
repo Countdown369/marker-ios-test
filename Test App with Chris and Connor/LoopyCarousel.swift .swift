@@ -11,15 +11,16 @@ import Turf
 
 
 struct LoopyCarousel: View {
-    @State private var fountainNames: [String];
-    @Binding var FC: FeatureCollection!{
-        didSet{fountainNames = FC.features.compactMap { $0.properties!["signname"] as? String }}
-    }
+    @Binding var FC: FeatureCollection!
     
   var body: some View {
+      
+    @State var fountainNames = FC.features.compactMap
+      {
+          $0.properties!["signname"] as? String
+      }
 
     VStack {
-
       Text("Loopy Carousel").font(.title)
       Text("Tap on any card to select and see it slide onto the center of the carousel.")
 
@@ -31,6 +32,7 @@ struct LoopyCarousel: View {
       Spacer()
     }
   }
+    
 }
 
 struct Carousel: View {
@@ -59,9 +61,11 @@ struct Carousel: View {
       .background(Color.purple)
 
       VStack(alignment: .leading) {
-        Text("Card \(current % cardLabels.count) of \(cardLabels.count)")
-        Text("Index \(current) of \(loopCount)")
-        Text("Offset: \(offset, specifier: "%d") points")
+          if cardLabels.count > 0 {
+              Text("Card \(current % cardLabels.count) of \(cardLabels.count)")
+              Text("Index \(current) of \(loopCount)")
+              Text("Offset: \(offset, specifier: "%d") points")
+          }
       }
       .font(.system(.caption, design: .monospaced))
     }

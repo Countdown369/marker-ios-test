@@ -21,6 +21,19 @@ struct MapViewControllerWrapper: UIViewControllerRepresentable {
     }
 }
 
+struct WaterFountainFeatureProperties {
+    var signname: String
+}
+
+struct WaterFountainFeature {
+    var geometry: JSONObject
+    var properties: WaterFountainFeatureProperties
+}
+
+struct WaterFountainFC: FeatureCollection {
+    var features: [WaterFountainFeature]
+}
+
 struct ContentView: View {
     @State private var image: Image?
     @State private var showingImagePicker = false
@@ -30,7 +43,9 @@ struct ContentView: View {
     var body: some View {
         ZStack {
             MapViewControllerWrapper(FC: $featureCollection);
-            LoopyCarousel(FC: $featureCollection);
+            if featureCollection != nil {
+                LoopyCarousel(FC: $featureCollection);
+            }
         }
         .onAppear {
             // load geojson file and store it in the variable `featureCollection`
